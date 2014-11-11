@@ -1,0 +1,13 @@
+| bl
+doctype html
+html
+  head
+    title
+      | Tindung
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+  body
+    section.container
+      .col-md-12
+        = yield
