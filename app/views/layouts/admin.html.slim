@@ -24,7 +24,7 @@ html
       .row
         .col-md-3
           - if admin_signed_in?
-
+            = render_navigation :expand_all => true, :renderer => :bootstrap
         .col-md-9
           = flash_messages
           = yield
