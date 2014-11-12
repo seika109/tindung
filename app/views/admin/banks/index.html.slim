@@ -1,4 +1,4 @@
-h2 'List of Banks'
+h2 List of Banks
 .row
   .col-md-12
     = link_to 'Create Bank', new_admin_bank_path, class: 'btn btn-info'
@@ -8,7 +8,7 @@ h2 'List of Banks'
       thead
         tr
           th Name
-          th Description
+          th Edit
           th
           th
           th
@@ -19,6 +19,9 @@ h2 'List of Banks'
             td
               = bank.name
             td
+              = link_to 'Edit', edit_admin_bank_path(bank),
+                                data: {test: "bank-edit-#{bank.id}"},
+                                class: 'btn btn-warning btn-sm'
             td
             td
             td

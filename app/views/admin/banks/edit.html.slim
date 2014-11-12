@@ -1,0 +1,6 @@
+h3 Edit Bank ##{@bank.id}
+.row
+  .col-md-6
+    = simple_form_for [:admin, @bank] do |form|
+      = form.input :name
+      = form.submit 'Edit', class: 'btn btn-success'
