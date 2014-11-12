@@ -1,0 +1,31 @@
+doctype html
+html
+  head
+    title
+      | Tindung
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+  body
+    #header
+      nav.navbar.navbar-default
+        .container
+          .navbar-header
+            = link_to 'Tindung Admin', admin_path, class: 'navbar-brand'
+
+          ul.nav.navbar-nav.navbar-right.col-md-4
+            - if admin_signed_in?
+              li= link_to "Welcome, #{current_admin.email}!", '#'
+              li= link_to 'Sign out', destroy_admin_session_path, method: :delete
+            - else
+              li= link_to 'Sign in', new_admin_session_path
+
+    #main-body.container
+      .row
+        .col-md-3
+          - if admin_signed_in?
+
+        .col-md-9
+          = flash_messages
+          = yield
+    #footer.container
