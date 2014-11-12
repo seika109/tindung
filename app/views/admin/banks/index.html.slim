@@ -1,27 +1,29 @@
 h2 'List of Banks'
 .row
-  .row
-    .col-md-12
-      table.table
-        thead
+  .col-md-12
+    = link_to 'Create Bank', new_admin_bank_path, class: 'btn btn-info'
+.row
+  .col-md-12
+    table.table
+      thead
+        tr
+          th Name
+          th Description
+          th
+          th
+          th
+          th
+      tbody
+        - @banks.each do |bank|
           tr
-            th Name
-            th Description
-            th
-            th
-            th
-            th
-        tbody
-          - @banks.each do |bank|
-            tr
-              td
-                = bank.name
-              td
-              td
-              td
-              td
-              td
+            td
+              = bank.name
+            td
+            td
+            td
+            td
+            td
 
-        tfoot
-          tr
-            td colspan=6
+      tfoot
+        tr
+          td colspan=6

@@ -1,0 +1,7 @@
+h3 Add new bank
+
+.row
+  .col-md-6
+    = simple_form_for [:admin, @bank] do |form|
+      = form.input :name
+      = form.submit 'Create', class: 'btn btn-success'
