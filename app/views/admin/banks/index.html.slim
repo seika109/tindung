@@ -9,10 +9,7 @@ h2 List of Banks
         tr
           th Name
           th Edit
-          th
-          th
-          th
-          th
+          th Delete
       tbody
         - @banks.each do |bank|
           tr
@@ -23,10 +20,11 @@ h2 List of Banks
                                 data: {test: "bank-edit-#{bank.id}"},
                                 class: 'btn btn-warning btn-sm'
             td
-            td
-            td
-            td
+              = button_to 'Delete', admin_bank_path(bank),
+                                    method: :delete,
+                                    data: {test: "bank-delete-#{bank.id}"},
+                                    class: 'btn btn-danger btn-sm'
 
       tfoot
         tr
-          td colspan=6
+          td colspan=3

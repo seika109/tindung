@@ -110,5 +110,21 @@ describe Admin::BanksController do
 
     end
   end
+
+  describe 'DELETE #destroy' do
+    let!(:bank) { create :bank }
+
+    before { sign_in admin }
+
+    def do_request
+      delete :destroy, id: bank.id
+    end
+
+    it 'destroy a bank' do
+      do_request
+
+      expect(Bank.all.count).to eq 0
+    end
+  end
 end
 

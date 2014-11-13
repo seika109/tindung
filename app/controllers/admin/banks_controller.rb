@@ -35,6 +35,14 @@ class Admin::BanksController < Admin::AdminController
       render :edit
     end
   end
+
+  def destroy
+    @bank = Bank.find(bank_id)
+    @bank.destroy
+    flash[:notice] = "Bank has been deleted successfully."
+    redirect_to admin_banks_path
+  end
+
   protected
   def bank_id
     params.require(:id)
