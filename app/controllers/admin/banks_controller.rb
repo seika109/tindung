@@ -1,7 +1,7 @@
 class Admin::BanksController < Admin::AdminController
 
   def index
-    @banks = Bank.all
+    @banks = Bank.all.paginate(page: page_param)
   end
 
   def new
@@ -49,5 +49,8 @@ class Admin::BanksController < Admin::AdminController
   end
   def bank_params
     params.require(:bank).permit(:name)
+  end
+  def page_param
+    params.fetch(:page, 1)
   end
 end
